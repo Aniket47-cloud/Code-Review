@@ -17,6 +17,7 @@ const apiUrl = import.meta.env.VITE_API_BASE_URL;
  })
 
  async function reviewCode(){
+  if(code.trim().length===0) return;
    setLoad(true);
   const response= await axios.post(`${apiUrl}/ai/get-review`,{code});
   setLoad(false);
@@ -48,7 +49,7 @@ const apiUrl = import.meta.env.VITE_API_BASE_URL;
         </div>
         <div 
         onClick={reviewCode}
-        className="review-button ">Review</div>
+       className={`review-button ${code.trim().length === 0 ? 'disabled' : ''}`}>Review</div>
       </div>
       <div className="right">
       {load === true ?( <div className="Loader"><PuffLoader size={90}/></div> )  

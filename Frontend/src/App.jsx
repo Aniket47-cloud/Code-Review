@@ -10,7 +10,7 @@ import axios from "axios"
 function App() {
 const [code,setCode]=useState(`function sum(){return 1+1}`);
 const [load,setLoad]=useState(false);
-
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const [review,setReview]=useState("")            
  useEffect(()=>{
   prism.highlightAll()
@@ -18,7 +18,7 @@ const [load,setLoad]=useState(false);
 
  async function reviewCode(){
    setLoad(true);
-  const response= await axios.post(`http://localhost:3000/ai/get-review`,{code});
+  const response= await axios.post(`${apiUrl}/ai/get-review`,{code});
   setLoad(false);
  setReview(response.data);
 

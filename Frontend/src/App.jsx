@@ -36,6 +36,7 @@ const apiUrl = import.meta.env.VITE_API_BASE_URL;
           highlight={code => prism.highlight(code , prism.languages.javascript, "javascript")}
           padding={10}
           style={{
+            overflowY:"auto",
             fontFamily:'"Fira code","Fira Mono",monospace',
             fontSize: 16,
             border : "1px solid #ddd",
@@ -47,7 +48,7 @@ const apiUrl = import.meta.env.VITE_API_BASE_URL;
         </div>
         <div 
         onClick={reviewCode}
-        className="review-button">Review</div>
+        className="review-button ">Review</div>
       </div>
       <div className="right">
       {load === true ?( <div className="Loader"><PuffLoader size={90}/></div> )  
